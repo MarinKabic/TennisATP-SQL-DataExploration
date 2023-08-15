@@ -1,7 +1,7 @@
 /* 
 ATP Player rankings in 2010s Data Exploration
 
-Skills used: Aggregate functions, Windows functions, converting data types, CTE's, Temp tables, creating views
+Skills used: Aggregate functions, Windows functions, converting data types, CTE's, Temp tables
 */
 
 

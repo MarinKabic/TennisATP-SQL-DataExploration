@@ -16,7 +16,7 @@ Some of the insights that the analysis will provide:
      - the number of weeks observed
      - determining the dates when ATP rankings weren't updated weekly
 -	Players  & Ranking dates analysis
-     - dates when players became rank 1, and previous rank data
+     - Data when players became rank 1 and previous rank data
      - How many weekly rankings did each no.1 ranked player stay at no.1
      - how many weekly rankings did the other players stay inside top 3
      - how many weekly rankings did any player spend at any given position?

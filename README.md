@@ -18,9 +18,9 @@ Some of the insights that the analysis will provide:
 -	Players  & Ranking dates analysis
      - Data when players became rank 1 and previous rank data
      - How many weekly rankings did each no.1 ranked player stay at no.1
-     - how many weekly rankings did the other players stay inside top 3
-     - how many weekly rankings did any player spend at any given position?
-     - what were the first and last dates that every player ranked as no.1 ?
+     - How many weekly rankings did the other players stay inside top 3
+     - How many weekly rankings did any player spend at any given position?
+     - What were the first and last dates that every player ranked as no.1 ?
 -	Average, Min, Max Points, Percentiles
 -	Creating Views
 

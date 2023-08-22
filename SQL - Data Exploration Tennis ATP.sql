@@ -73,10 +73,7 @@ SELECT
 FROM atp_players AS playerID
 JOIN atp_rankings_10s AS rankings
 ON playerID.player_id = rankings.player_id
-WHERE CONCAT(playerID.name_first, ' ', playerID.name_last) <> 'Novak Djokovic' 
-	AND CONCAT(playerID.name_first, ' ', playerID.name_last) <> 'Rafael Nadal' 
-	AND CONCAT(playerID.name_first, ' ', playerID.name_last) <> 'Roger Federer' 
-	AND CONCAT(playerID.name_first, ' ', playerID.name_last) <> 'Andy Murray' 
+WHERE CONCAT(playerID.name_first, ' ', playerID.name_last) NOT IN ('Novak Djokovic', 'Rafael Nadal', 'Roger Federer', 'Andy Murray')
 	AND rankings.rank < 4
 GROUP BY 
 	rankings.rank,

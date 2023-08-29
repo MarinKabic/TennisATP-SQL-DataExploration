@@ -1,5 +1,5 @@
 # TennisATP-SQL-DataExploration
-This projects is about data exploration in **SQL Server** on the ATP tennis rankings data from 2010's.
+This projects is about data exploration in **MS SQL Server** on the ATP tennis rankings data from 2010's.
 
 The dataset that is analyzed is on https://github.com/JeffSackmann/tennis_atp from https://github.com/JeffSackmann 
 

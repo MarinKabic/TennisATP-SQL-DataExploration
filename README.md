@@ -12,7 +12,7 @@ Some of the insights that the analysis will provide:
 -	List all the names of no. 1. players during the period
 -	Analysis of top ranked players during the period
 -	Ranking dates analysis
-     - days spent as at rank 1
+     - days spent at rank 1
      - the count of rank updates
      - the number of weeks observed
      - determining the dates when ATP rankings weren't updated weekly

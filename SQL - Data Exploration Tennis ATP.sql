@@ -131,6 +131,37 @@ SELECT MIN(ranking_date) AS first_ranking_date,
 	   MAX(ranking_date) AS last_ranking_date
 FROM atp_rankings_10s
 
+
+-- days observed (days betwenn first and last rank update)
+
+SELECT DATEDIFF(DAY, MIN(ranking_date), MAX(ranking_date)) AS days_observed
+FROM atp_rankings_10s
+
+
+----------------------------------------------------------------------------
+------------------------------Days ranked no.1------------------------------
+----------------------------------------------------------------------------
+
+WITH RankedData AS (
+    SELECT
+        CONCAT(playerID.name_first, ' ', playerID.name_last) AS full_name,
+        ranking_date,
+        rank,
+		DATEDIFF(DAY, ranking_date, LEAD(ranking_date) OVER(ORDER BY ranking_date)) AS days_no_1
+    FROM atp_players AS playerID
+    JOIN atp_rankings_10s AS rankings
+    ON playerID.player_id = rankings.player_id
+    WHERE rank = 1
+)
+SELECT
+    full_name,
+    SUM(days_no_1) AS days_ranked_1st
+FROM RankedData
+GROUP BY full_name
+ORDER BY SUM(days_no_1) DESC;
+
+
+
 	
 
 -- ATP rankings are cosindered to be weekly rankings due to them being updated weekly (at the end of the week) when the tournaments end

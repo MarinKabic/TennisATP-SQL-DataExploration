@@ -18,15 +18,15 @@ Some of the insights that the analysis will provide:
 
 **SQL - Data Exploration Tennis ATP.sql**
 -	List all the names of no. 1. players during the period
-     - days spent at rank 1
+     - Days spent at rank 1
 -	Analysis of top ranked players during the period
      - MAX and MIN points of each no.1 player
      - AVG yearly rank of each no.1 player
      - First and last dates that every player ranked as number 1?
 -    Other top ranked players analysis
-     - all the players that were ranked top 3 (besides The Big Three + Andy Murray)
-     - top 10 players with the highest average ranking over the entire period
-     - players which had the average ranking inside TOP 10
+     - All the players that were ranked top 3 (besides The Big Three + Andy Murray)
+     - Top 10 players with the highest average ranking over the entire period
+     - Players which had the average ranking inside TOP 10
 -    Ranking dates analysis
      - First and last ranking update
      - Count of rank updates

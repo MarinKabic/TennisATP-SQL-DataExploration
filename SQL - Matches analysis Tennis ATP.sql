@@ -1,5 +1,5 @@
 /*
-This part of the project consists of two parts:
+This part of the project consists of two sections:
 1. Analysis of matches played (matches played/won, finals played/won)
 2. Deeper analysis consisting of: analysis of aces and players with most aces
                                 : analysis of Top Players data (The Big Three + Andy Murray) per surface played
@@ -14,21 +14,21 @@ Columns in the new table will be as follows: Player ID, Player Name, Matches Pla
 WITH PlayerMatches AS 
 (
     SELECT player_name,
-	       player_id 
+	   player_id 
     FROM 
-	(
+    (
         SELECT winner_name AS player_name,
-		       winner_id AS player_id 
-		FROM ATP_Matches
+	       winner_id AS player_id 
+	FROM ATP_Matches
         UNION ALL
         SELECT loser_name AS player_name, 
-		       loser_id AS player_id
-		FROM ATP_Matches
+	       loser_id AS player_id
+	FROM ATP_Matches
     ) AS CombinedData
 )
 SELECT player_id,
        player_name,
-	   COUNT(*) AS MatchesPlayed
+       COUNT(*) AS MatchesPlayed
 FROM PlayerMatches 
 GROUP BY player_id,player_name
 ORDER BY MatchesPlayed DESC;
@@ -48,20 +48,20 @@ Matches_Played numeric
 )
 INSERT INTO ATP_Matches_Summary
 	SELECT player_id, 
-		   player_name,
-		   COUNT(player_name)
+	       player_name,
+	       COUNT(player_name)
 	FROM 
 	(
 		  SELECT winner_name AS player_name,
-				 winner_id AS player_id 
+		         winner_id AS player_id 
 		  FROM ATP_Matches
 		  UNION ALL
 		  SELECT loser_name AS player_name, 
-				 loser_id AS player_id
+		         loser_id AS player_id
 		  FROM ATP_Matches
 	) AS hehe
 	GROUP BY player_id, 
-			 player_name
+		 player_name
 	ORDER BY COUNT(player_name) DESC
 
 
@@ -114,12 +114,12 @@ SET Finals_Played =
 	FROM 
 	(
 		  SELECT winner_name AS player_name,
-				 winner_id AS player_id 
+			 winner_id AS player_id 
 		  FROM ATP_Matches
 		  WHERE round = 'F'
 		  UNION ALL
 		  SELECT loser_name AS player_name, 
-				 loser_id AS player_id
+			 loser_id AS player_id
 		  FROM ATP_Matches
 		  WHERE round = 'F'
 	) AS hehe
@@ -161,7 +161,7 @@ SELECT SUM(ace)
 FROM
 (
 	SELECT winner_name AS player_name,
-		   w_ace AS ace
+	       w_ace AS ace
 	FROM ATP_Matches
 	UNION ALL
 	SELECT loser_name AS player_name,
@@ -179,8 +179,7 @@ WHERE s.player_name = ATP_Matches_Summary.Player_Name
 
 /*
 The following part will analyze: 
-players with most average aces per match,
-their height 
+players with most average aces per match and their height 
 */
 
 ---------------------------------------------------------------------------
@@ -198,24 +197,24 @@ AVG_Aces float
 )
 INSERT INTO ATP_Aces
 	SELECT player_id,
-		   player_name,
-		   COUNT(player_name) AS matches_played,
-		   SUM(ace) AS total_aces,
-		   ROUND((SUM(ace)/COUNT(player_name)), 2) AS avg_aces_per_match
+	       player_name,
+	       COUNT(player_name) AS matches_played,
+               SUM(ace) AS total_aces,
+	       ROUND((SUM(ace)/COUNT(player_name)), 2) AS avg_aces_per_match
 	FROM
 	(
 		SELECT winner_id AS player_id,
-			   winner_name AS player_name,
-			   w_ace AS ace
+		       winner_name AS player_name,
+		       w_ace AS ace
 		FROM ATP_Matches
 		UNION ALL
 		SELECT loser_id AS player_id,
-			   loser_name AS player_name,
-			   l_ace AS ace
+		       loser_name AS player_name,
+		       l_ace AS ace
 		FROM ATP_Matches
 	) AS s
 	GROUP BY s.player_id,
-			 s.player_name
+	         s.player_name
 	HAVING COUNT(player_name) > 100
 	ORDER BY avg_aces_per_match DESC
 
@@ -229,10 +228,10 @@ SELECT DISTINCT a.*,
        b.Height,
 	   CASE WHEN b.Height <170 THEN '<170'
 	        WHEN b.Height BETWEEN 170 AND 179 THEN '170-179'
-			WHEN b.Height BETWEEN 180 AND 189 THEN '180-189'
-			WHEN b.Height BETWEEN 190 AND 199 THEN '190-199'
-			WHEN b.Height > 200 THEN '200+'
-		END AS Height_ranges
+		WHEN b.Height BETWEEN 180 AND 189 THEN '180-189'
+		WHEN b.Height BETWEEN 190 AND 199 THEN '190-199'
+		WHEN b.Height > 200 THEN '200+'
+	    END AS Height_ranges
 FROM ATP_Aces AS a
 LEFT OUTER JOIN ATP_Ranks AS b
 ON a.Player_Id = b.Player_id
@@ -249,11 +248,11 @@ WITH CTE AS
 	SELECT DISTINCT a.*,
 		   b.Height,
 		   CASE WHEN b.Height <170 THEN '<170'
-				WHEN b.Height BETWEEN 170 AND 179 THEN '170-179'
-				WHEN b.Height BETWEEN 180 AND 189 THEN '180-189'
-				WHEN b.Height BETWEEN 190 AND 199 THEN '190-199'
-				WHEN b.Height > 200 THEN '200+'
-			END AS Height_ranges
+			WHEN b.Height BETWEEN 170 AND 179 THEN '170-179'
+			WHEN b.Height BETWEEN 180 AND 189 THEN '180-189'
+			WHEN b.Height BETWEEN 190 AND 199 THEN '190-199'
+			WHEN b.Height > 200 THEN '200+'
+		    END AS Height_ranges
 	FROM ATP_Aces AS a
 	LEFT OUTER JOIN ATP_Ranks AS b
 	ON a.Player_Id = b.Player_id
@@ -261,7 +260,7 @@ WITH CTE AS
 CTE2 AS
 (
 	SELECT Height_ranges,
-		   DENSE_RANK() OVER(ORDER BY AVG_Aces DESC) AS Ace_rank
+	       DENSE_RANK() OVER(ORDER BY AVG_Aces DESC) AS Ace_rank
 	FROM CTE
 )
 SELECT Height_ranges,
@@ -288,25 +287,25 @@ for Novak Djokovic, Roger Federer, Rafael Nadal, Andy Murray
 WITH PlayerMatches AS 
 (
     SELECT player_name,
-	       player_id,
-		   surface
+	   player_id,
+	   surface
     FROM 
-	(
+    (
         SELECT winner_name AS player_name,
-		       winner_id AS player_id,
-			   surface
-		FROM ATP_Matches
+	       winner_id AS player_id,
+	       surface
+	FROM ATP_Matches
         UNION ALL
         SELECT loser_name AS player_name, 
-		       loser_id AS player_id,
-			   surface
-		FROM ATP_Matches
+	       loser_id AS player_id,
+	       surface
+	FROM ATP_Matches
     ) AS CombinedData
 )
 SELECT player_id,
        player_name,
-	   surface,
-	   COUNT(*) AS MatchesPlayed
+       surface,
+       COUNT(*) AS MatchesPlayed
 FROM PlayerMatches 
 WHERE player_name IN ('Novak Djokovic', 'Roger Federer', 'Andy Murray', 'Rafael Nadal')
 GROUP BY player_id,player_name, surface
@@ -328,25 +327,25 @@ Matches_Played numeric
 )
 INSERT INTO ATP_Surface
 	SELECT player_id, 
-		   player_name,
-		   surface,
-		   COUNT(player_name)
-    FROM 
+	       player_name,
+	       surface,
+	       COUNT(player_name)
+        FROM 
 	(
-        SELECT winner_name AS player_name,
+	        SELECT winner_name AS player_name,
 		       winner_id AS player_id,
-			   surface
+		       surface
 		FROM ATP_Matches
-        UNION ALL
-        SELECT loser_name AS player_name, 
+	        UNION ALL
+	        SELECT loser_name AS player_name, 
 		       loser_id AS player_id,
-			   surface
+		       surface
 		FROM ATP_Matches
-    ) AS CombinedData
+        ) AS CombinedData
 	WHERE player_name IN ('Novak Djokovic', 'Roger Federer', 'Andy Murray', 'Rafael Nadal')
 	GROUP BY player_id, 
-			 player_name,
-			 surface
+		 player_name,
+	         surface
 
 
 
@@ -389,19 +388,19 @@ FROM ATP_Surface
 WITH CTE AS
 (
 	SELECT Player_Id,
-		   Player_Name,
-		   Surface,
-		   Matches_Played,
-		   Matches_Won, 
-		   Win_Percentage,
-		   DENSE_RANK() OVER(PARTITION BY Surface ORDER BY Win_Percentage DESC) AS Surface_Win_Rank
+	       Player_Name,
+	       Surface,
+	       Matches_Played,
+	       Matches_Won, 
+	       Win_Percentage,
+	       DENSE_RANK() OVER(PARTITION BY Surface ORDER BY Win_Percentage DESC) AS Surface_Win_Rank
 	FROM ATP_Surface
 )
 SELECT Player_Name,
        Surface,		   
-	   Matches_Played,
-	   Matches_Won,
-	   Win_Percentage 
+       Matches_Played,
+       Matches_Won,
+       Win_Percentage 
 FROM CTE 
 WHERE Surface_Win_Rank = 1
 ORDER BY Matches_Played DESC

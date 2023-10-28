@@ -7,8 +7,10 @@ The dataset that is analyzed is on https://github.com/JeffSackmann/tennis_atp fr
 
 The data exploration part consists of 2 parts:
 1. SQL - Data Exploration Tennis ATP.sql >  Analyzing player rankings over the observed period
+   
                                             (files used: „atp_rankings_10s.csv“ and „atp_players.csv“)
 2. SQL - Matches analysis Tennis ATP.sql >  Analyzing data about: matches, finals, and some deeper analysis regarding: aces and matches played per surface
+ 
                                             (files used: > from „atp_matches_2010.csv“ to „atp_matches_2019.csv“)
 
 

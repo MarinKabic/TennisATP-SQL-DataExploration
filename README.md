@@ -15,6 +15,7 @@ The data exploration part consists of 2 parts:
 ## Deliverables
 This project will analyze ATP Rankings and matches in 2010-2019.
 Some of the insights that the analysis will provide:
+
 **SQL - Data Exploration Tennis ATP.sql**
 -	List all the names of no. 1. players during the period
      - days spent at rank 1

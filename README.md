@@ -1,7 +1,7 @@
 # TennisATP-SQL-DataExploration
 This projects is focused on data exploration in **MS SQL Server** on the ATP rankings and matches data from 2010's(2010-2019).
 
-Also, Python was used for combining 10 csv files into 1, see > ATP_Matches_Files.ipynb
+Also, **Python** was used for combining 10 csv files into 1, see > ATP_Matches_Files.ipynb
 
 The dataset that is analyzed is on https://github.com/JeffSackmann/tennis_atp from https://github.com/JeffSackmann 
 

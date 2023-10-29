@@ -178,10 +178,26 @@ WHERE cte_rank <= 10
 ---------------------------------------------------------------------------
 
 SELECT Player_Name,
-       AVG(Player_Rank) AS Average_Rank
+       ROUND(AVG(Player_Rank), 2) AS Average_Rank
 FROM ATP_Ranks
 GROUP BY Player_Name
 HAVING AVG(Player_Rank) < 10
+
+
+	
+/* 
+since Andy Murray didn't have AVG raking inside TOP 10 during the observed period,
+let's see his AVG ratings throughout the years
+*/
+	
+SELECT YEAR(Ranking_date) AS year,
+       Player_Name,
+       ROUND(AVG(Player_Rank), 2) AS Average_Rank
+FROM ATP_Ranks
+WHERE Player_Name = 'Andy Murray'
+GROUP BY YEAR(Ranking_date), 
+	      Player_Name
+ORDER BY YEAR(Ranking_date)
 
 
 

@@ -135,9 +135,10 @@ GROUP BY Player_Name
 ---------------------------------------------------------------------------
 ---------------------Other top ranked players analysis---------------------
 ---------------------------------------------------------------------------
--- since only 4 players were no.1 during that time, lets see if anybody besides them was top 3 during the period
-
--- lets see all the other players who were ranked top 3 besides the mentioned 4 players 
+/*
+since only 4 players were no.1 during that time, lets see if anybody besides them was top 3 during the period
+let's see all the other players who were ranked top 3 besides the mentioned 4 players 
+*/
 
 SELECT 
 	Player_Rank,
@@ -218,13 +219,14 @@ SELECT MIN(Ranking_date) AS first_ranking_date,
 FROM ATP_Ranks
 
 
-	
--- ATP rankings are cosindered to be weekly rankings due to them being updated weekly (at the end of the week) when the tournaments end
--- the only exceptions are when there are no tournamets during the week
--- the below analysis will display:
--- 1. the count of rank updates, 
--- 2. the number of weeks observed
--- 3. determine what were the dates when ATP rankings weren't updated weekly?
+/*	
+ATP rankings are cosindered to be weekly rankings due to them being updated weekly (at the end of the week) when the tournaments end
+the only exceptions are when there are no tournamets during the week
+the below analysis will display:
+1. the count of rank updates, 
+2. the number of weeks observed
+3. determine what were the dates when ATP rankings weren't updated weekly?
+*/
 
 ----------------------------------------------------------------------------
 --------------------------Count of rank updates-----------------------------

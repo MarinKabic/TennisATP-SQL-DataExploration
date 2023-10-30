@@ -89,7 +89,9 @@ During the observed period, matches were played on the following surfaces: Hardc
 ![image](https://github.com/MarinKabic/TennisATP-SQL-DataExploration/assets/131856660/7159794c-e1ef-4866-991a-98599a4d7139)
 
 We can see that the highest win percentage per surface played is achieved by Rafael Nadal while playing on Clay with over 90% win rate. Other than that, we can see that Novak Djokovic also dominates in this field, having the highest win rate on Hard court as well as in Grass. 
-Deeper analysis:
+
+## Deeper analysis:
+
 After analyzing player data about matches played and rankings during the period, I also wanted to know the following:
 1. Were there any players besides the top ranked players that had an average rating inside TOP 10 during the observed period?
 2. Who were the players which had the most aces?

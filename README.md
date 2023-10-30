@@ -20,9 +20,9 @@ Datasets used:
 > from „atp_matches_2010.csv“ to  „atp_matches_2019.csv“ to analyze the data about played matches, finals, surface
 
 ## Tools used for data analysis:
-Python – for combining all the 10 atp_matches_201x. csv files into one consolidated dataset
+**Python** – for combining all the 10 atp_matches_201x. csv files into one consolidated dataset
 
-MS SQL Server – for all the data analysis steps (cleaning if needed & analysis)
+**MS SQL Server** – for all the data analysis steps (cleaning if needed & analysis)
 
 ## Data Analysis:
 For the main part of the analysis, i decided to analyze the data to give me the following insights:

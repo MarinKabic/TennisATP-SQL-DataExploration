@@ -1,3 +1,7 @@
+For the final report open the following: 
+
+"ATP Final report.pdf > https://github.com/MarinKabic/TennisATP-SQL-DataExploration/blob/main/ATP%20Final%20Report.pdf "
+
 # TennisATP-SQL-DataExploration
 
 In the recent months/years, after more than a decade, the players at the top spots of ATP Rankings have started to change. The male tennis division was dominated for over a decade by: Novak Djokovic, Roger Federer and Rafael Nadal. Out of the mentioned players, only Novak Djokovic is actively playing and holding the top ranks. Roger Federer has retired in 2021. Rafael Nadals recent playing years were mostly injury driven and as of 25.10.2023. Nadal is ranked 242 having played only 4 matches in 2023. That being said, we can say the 2020's mark the end of an era, an era which was dominated by The Big Three.
